@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Parse
+import IQKeyboardManagerSwift
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Variables
     var scrollViewHeight: CGFloat = 0
@@ -21,29 +23,42 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var fullNameTxt: UITextField!
     @IBOutlet weak var bioTxt: UITextField!
     @IBOutlet weak var webTxt: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let profImageTap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.loadImg(recognizer:)))
+        profImageTap.numberOfTapsRequired = 1
+        profImage.isUserInteractionEnabled = true
+        profImage.addGestureRecognizer(profImageTap)
+        
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // Actions
+    
+    // call picker to select image
+    @objc func loadImg(recognizer: UITapGestureRecognizer) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // connect selected image to our image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        profImage.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    @IBAction func signUpBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
