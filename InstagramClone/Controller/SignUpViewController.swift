@@ -9,6 +9,20 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    
+    // Variables
+    var scrollViewHeight: CGFloat = 0
+    
+    // Outlets
+    @IBOutlet weak var profImage: UIImageView!
+    @IBOutlet weak var usernameTxt: UITextField!
+    @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var repeatPassTxt: UITextField!
+    @IBOutlet weak var fullNameTxt: UITextField!
+    @IBOutlet weak var bioTxt: UITextField!
+    @IBOutlet weak var webTxt: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

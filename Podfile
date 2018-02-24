@@ -7,6 +7,8 @@ target 'InstagramClone' do
 
   # Pods for InstagramClone
     pod 'Parse'
+    pod 'IQKeyboardManagerSwift', '5.0.0'
+
   target 'InstagramCloneTests' do
     inherit! :search_paths
     # Pods for testing
