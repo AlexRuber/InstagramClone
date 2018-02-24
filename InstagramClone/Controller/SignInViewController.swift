@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SignInViewController: UIViewController {
 
@@ -28,7 +29,27 @@ class SignInViewController: UIViewController {
 
     // Actions
     @IBAction func loginBtnTapped(_ sender: Any) {
+        
+        if (usernameTxt.text?.isEmpty == true || passwordTxt.text?.isEmpty == true) {
+            let alert = UIAlertController(title: "Error", message: "Fill in all the fields", preferredStyle: UIAlertControllerStyle.alert)
+            let ok = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
+        self.view.endEditing(true)
+        
+        PFUser.logInWithUsername(inBackground: usernameTxt.text!, password: passwordTxt.text!) { (user: PFUser?, error: Error?) in
+            if error == nil {
+                UserDefaults.standard.set(user!.username, forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                // call login function from app delegate
+                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.login()
+            }
+        }
     }
+
     
     
     
