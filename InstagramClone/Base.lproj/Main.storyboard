@@ -430,7 +430,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="make post" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p4d-iv-JEK">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="make post" translatesAutoresizingMaskIntoConstraints="NO" id="p4d-iv-JEK">
                                 <rect key="frame" x="151" y="81" width="208" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.81410949160000001" green="0.81410949160000001" blue="0.81410949160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -445,6 +445,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="postImagePressed:" destination="hQc-P1-mm3" eventType="touchUpInside" id="VDY-BV-lRA"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="QCe-fb-x2H">
                                 <rect key="frame" x="9" y="74" width="124" height="128"/>

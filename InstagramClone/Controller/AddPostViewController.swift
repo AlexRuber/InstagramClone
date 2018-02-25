@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Parse
 
 class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -64,6 +65,39 @@ class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         picImg.isUserInteractionEnabled = true
         picImg.addGestureRecognizer(zoomTap)
     }
+    
+    // click post button
+    @IBAction func postImagePressed(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        // send data to posts class in parse
+        let object = PFObject(className: "posts")
+        object["username"] = PFUser.current()!.username
+        object["profImg"] = PFUser.current()!.value(forKey: "profImg") as! PFFile
+        object["uuid"] = "\(PFUser.current()!.username) \(NSUUID().uuidString)"
+        
+        if titleTxt.text.isEmpty == true {
+            object["title"] = ""
+        } else {
+            object["title"] = titleTxt.text
+        }
+        
+        let imageData = UIImageJPEGRepresentation(picImg.image!, 0.5)
+        let imageFile = PFFile(name: "post.jpg", data: imageData!)
+        object["pic"] = imageFile
+        
+        object.saveInBackground { (success: Bool, error: Error?) in
+            if error == nil {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uploaded"), object: nil)
+                self.tabBarController!.selectedIndex = 0
+                print("succesfuly posted!")
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        
+    }
+    
     
     //Zoom in function
     @objc func zoom() {

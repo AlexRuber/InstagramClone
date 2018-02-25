@@ -31,8 +31,15 @@ class HomeViewController: UICollectionViewController {
         collectionView?.addSubview(refresher)
         
         // load posts function
-        //loadPosts()
+        loadPosts()
+        
+        // receive notification of a post
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.uploaded(notification:)), name: NSNotification.Name(rawValue: "uploaded"), object: nil)
 
+    }
+    
+    @objc func uploaded(notification: NSNotification) {
+        loadPosts()
     }
     
     // refresh
@@ -44,11 +51,13 @@ class HomeViewController: UICollectionViewController {
     // load posts
     func loadPosts() {
         let query = PFQuery(className: "posts")
+        query.addDescendingOrder("createdAt")
         query.whereKey("username", equalTo: PFUser.current()!.username!)
         query.limit = page
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
                 
+                // clearn up
                 self.uuidArray.removeAll(keepingCapacity: false)
                 self.picArray.removeAll(keepingCapacity: false)
                 
