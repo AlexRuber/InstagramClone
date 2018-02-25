@@ -65,6 +65,9 @@
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" red="0.43416464329999999" green="0.56285208460000002" blue="0.99988037350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ZDN-1O-M6p" kind="presentation" id="M6l-MO-MSn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNA-ig-YIQ">
                                 <rect key="frame" x="61" y="414" width="252" height="58"/>
@@ -205,13 +208,46 @@
                     <view key="view" contentMode="scaleToFill" id="xf9-ei-UlB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-gJ-Aif">
+                                <rect key="frame" x="41" y="106" width="292" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdl-Fz-uD5">
+                                <rect key="frame" x="99" y="259" width="177" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.43416464329999999" green="0.56285208460000002" blue="0.99988037350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetBtnClicked:" destination="ZDN-1O-M6p" eventType="touchUpInside" id="OeW-vg-TYc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJT-o7-MWB">
+                                <rect key="frame" x="99" y="589" width="177" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBtnClicked:" destination="ZDN-1O-M6p" eventType="touchUpInside" id="da5-RZ-Dhb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5Mb-VA-qCj"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="eJT-o7-MWB" id="fCo-nT-CFq"/>
+                        <outlet property="emailTxt" destination="p2Z-gJ-Aif" id="YgW-u6-iYZ"/>
+                        <outlet property="resetBtn" destination="pdl-Fz-uD5" id="Ti9-XL-kk4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soN-Yt-w5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="96"/>
+            <point key="canvasLocation" x="1008.8" y="95.802098950524751"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="FOa-Zp-cbX">
