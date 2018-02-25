@@ -46,6 +46,12 @@ class SignInViewController: UIViewController {
                 // call login function from app delegate
                 let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.login()
+            } else {
+                // there was an error logging in
+                let alert = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let ok = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
