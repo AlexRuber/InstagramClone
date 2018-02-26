@@ -24,7 +24,7 @@ class FeedViewController: UITableViewController {
     var titleArray = [String]()
     var uuidArray = [String]()
     
-    var page: Int = 10
+    var page: Int = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()

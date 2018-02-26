@@ -13,7 +13,7 @@ class HomeViewController: UICollectionViewController {
 
     // Variables
     var refresher: UIRefreshControl!
-    var page: Int = 10
+    var page: Int = 20
     var uuidArray = [String]()
     var picArray = [PFFile]()
     
