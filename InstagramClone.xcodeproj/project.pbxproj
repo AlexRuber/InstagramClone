@@ -17,6 +17,9 @@
 		980387262041011B00D41A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980387242041011B00D41A8A /* LaunchScreen.storyboard */; };
 		980387312041011B00D41A8A /* InstagramCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980387302041011B00D41A8A /* InstagramCloneTests.swift */; };
 		9803873C2041011B00D41A8A /* InstagramCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9803873B2041011B00D41A8A /* InstagramCloneUITests.swift */; };
+		984DD4B92043A93F0020BD83 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DD4B82043A93F0020BD83 /* PostCell.swift */; };
+		984DD4BB2043ACF80020BD83 /* CustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DD4BA2043ACF80020BD83 /* CustomNav.swift */; };
+		984DD4BD2043AEB50020BD83 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984DD4BC2043AEB50020BD83 /* FeedViewController.swift */; };
 		988F61982041142000DAD665 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F61972041142000DAD665 /* SignInViewController.swift */; };
 		988F619A2041143800DAD665 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F61992041143800DAD665 /* SignUpViewController.swift */; };
 		988F619F2041147800DAD665 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F619E2041147800DAD665 /* ResetPasswordViewController.swift */; };
@@ -64,6 +67,9 @@
 		980387372041011B00D41A8A /* InstagramCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9803873B2041011B00D41A8A /* InstagramCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCloneUITests.swift; sourceTree = "<group>"; };
 		9803873D2041011B00D41A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		984DD4B82043A93F0020BD83 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		984DD4BA2043ACF80020BD83 /* CustomNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNav.swift; sourceTree = "<group>"; };
+		984DD4BC2043AEB50020BD83 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		988F61972041142000DAD665 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		988F61992041143800DAD665 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		988F619E2041147800DAD665 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +183,8 @@
 				98031E47204295A400D55191 /* HomeViewController.swift */,
 				988F619E2041147800DAD665 /* ResetPasswordViewController.swift */,
 				98DCDD972042ACD100EA03B9 /* AddPostViewController.swift */,
+				984DD4BA2043ACF80020BD83 /* CustomNav.swift */,
+				984DD4BC2043AEB50020BD83 /* FeedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				98DCDD942042983F00EA03B9 /* PictureCell.swift */,
+				984DD4B82043A93F0020BD83 /* PostCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,11 +513,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984DD4BB2043ACF80020BD83 /* CustomNav.swift in Sources */,
 				98031E48204295A400D55191 /* HomeViewController.swift in Sources */,
 				98031E4A204295C100D55191 /* HeaderView.swift in Sources */,
 				9803871C2041011B00D41A8A /* AppDelegate.swift in Sources */,
 				988F619F2041147800DAD665 /* ResetPasswordViewController.swift in Sources */,
 				98DCDD982042ACD100EA03B9 /* AddPostViewController.swift in Sources */,
+				984DD4B92043A93F0020BD83 /* PostCell.swift in Sources */,
+				984DD4BD2043AEB50020BD83 /* FeedViewController.swift in Sources */,
 				988F619A2041143800DAD665 /* SignUpViewController.swift in Sources */,
 				98DCDD952042983F00EA03B9 /* PictureCell.swift in Sources */,
 				988F61982041142000DAD665 /* SignInViewController.swift in Sources */,

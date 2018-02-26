@@ -35,6 +35,7 @@ class HomeViewController: UICollectionViewController {
         
         // receive notification of a post
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.uploaded(notification:)), name: NSNotification.Name(rawValue: "uploaded"), object: nil)
+        
 
     }
     
@@ -78,6 +79,28 @@ class HomeViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // logout
+    @IBAction func logoutBtnTapped(_ sender: Any) {
+        // call login func from AppDelegate class
+        PFUser.logOutInBackground { (error: Error?) in
+            if error == nil {
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                let signin = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! SignInViewController
+                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = signin
+                
+                
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
+    
+
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! HeaderView
     
@@ -92,6 +115,8 @@ class HomeViewController: UICollectionViewController {
             let profImageQuery = PFUser.current()?.object(forKey: "profImg") as! PFFile
             profImageQuery.getDataInBackground { (data: Data?, error: Error?) in
             header.profImage.image = UIImage(data: data!)
+            header.profImage.layer.cornerRadius = 15
+            header.profImage.clipsToBounds = true
         }
         return header
     }

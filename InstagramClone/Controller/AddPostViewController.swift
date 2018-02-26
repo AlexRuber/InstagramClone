@@ -20,6 +20,9 @@ class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        picImg.image = UIImage(named: "addImage")
+        titleTxt.text = ""
+        
         // Add image tapped
         let addImageTap = UITapGestureRecognizer(target: self, action: #selector(AddPostViewController.loadImg(recognizer:)))
         addImageTap.numberOfTapsRequired = 1
@@ -37,11 +40,22 @@ class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     // Actions
     // call picker to select image
     @objc func loadImg(recognizer: UITapGestureRecognizer) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
+            let picker = UIImagePickerController()
+            picker.delegate = self
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            print("Camera is available 📸")
+            //picker.sourceType = .camera
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            
+        } else {
+            picker.sourceType = .photoLibrary
+            print("Camera 🚫 available so we will use photo library instead")
+        
+        }
         present(picker, animated: true, completion: nil)
+
+    
     }
     
     func alignment() {
@@ -97,6 +111,11 @@ class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
     }
+    
+    @IBAction func removeTapped(_ sender: Any) {
+        self.viewDidLoad()
+    }
+    
     
     
     //Zoom in function

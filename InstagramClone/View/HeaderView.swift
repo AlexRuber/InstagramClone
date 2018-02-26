@@ -18,7 +18,6 @@ class HeaderView: UICollectionReusableView {
     @IBOutlet weak var followings: UILabel!
     @IBOutlet weak var posts: UILabel!
     @IBOutlet weak var followers: UILabel!
-
     @IBOutlet weak var button: UIButton!
     
 
