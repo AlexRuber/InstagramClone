@@ -42,6 +42,9 @@ The following **additional** features are implemented:
 - [X] Whole sign up page with website, bio, prof pic, full name (+2pt)
 - [X] Custom UI (+2pt)
 - [X] Reset image and text view button (+2pt)
+- [X] Custom alert view controller for not matching passwords (+2pt)
+- [X] Customs alert controller for wrong password or username(+2pt)
+
 
 - [X] List anything else that you can get done to improve the app functionality!
 
